@@ -22,7 +22,9 @@ const PaTraining: NextPage = () => {
     onSuccess: (data) => {
       if (!data) return router.push(paths.paEdit);
 
-      const parsed = DataFormatter.parse(data);
+      const formatter = new DataFormatter();
+      formatter.setData(data);
+      const parsed = formatter.parse();
       shuffle(parsed);
       setData(parsed);
     },

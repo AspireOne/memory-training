@@ -9,6 +9,7 @@ import Link from "next/link";
 import paths from "~/utils/paths";
 import { BackButton } from "~/components/BackButton";
 
+const formatter = new DataFormatter();
 const PaEdit: NextPage = () => {
   const [splitter, setSplitter] = useState<string>(DataFormatter.splitter);
 
@@ -35,13 +36,14 @@ const PaEdit: NextPage = () => {
   });
 
   function handleSubmit() {
-    const valueParsed = DataFormatter.convertSplitter(value, splitter);
-    if (!DataFormatter.isDataValid(valueParsed)) {
+    if (!DataFormatter.isValid(value, splitter)) {
       setError("Data nejsou ve správném formátu");
       return;
     }
+
+    formatter.setData(value, splitter);
     setLoading(true);
-    updateMutation.mutate({method: Methods.PA, value: valueParsed});
+    updateMutation.mutate({method: Methods.PA, value: formatter.data});
   }
 
   function handleInput(value: string) {
@@ -54,7 +56,6 @@ const PaEdit: NextPage = () => {
       <BackButton href={paths.pa}/>
 
       <h1 className={"text-4xl text-center font-extrabold tracking-tight text-white sm:text-[5rem]"}>Data k trénování</h1>
-      {isInitialLoading && "Načítám..."}
       <Textarea placeholder={": "} title={"Oddělovač"} value={splitter}
                 onChange={(e) => setSplitter(e.target.value)}/>
       <Textarea
