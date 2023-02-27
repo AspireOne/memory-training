@@ -51,11 +51,11 @@ const PaTraining: NextPage = () => {
             </h2>
 
             <div className={"absolute bottom-0 left-0 right-0 flex flex-row"}>
-              <Button variant={"default"} className={"bg-blue-200/20 rounded-none w-full"}
+              <Button variant={"default"} className={"h-14 bg-blue-200/20 rounded-none w-full"}
                       onClick={advance}>
                 Další
               </Button>
-              <Button variant={"default"} className={"bg-blue-200/5 rounded-none w-full"}
+              <Button variant={"default"} className={"h-14 bg-blue-200/5 rounded-none w-full"}
                       onClick={() => setShowValue(true)}>
                 Ukázat
               </Button>
