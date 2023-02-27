@@ -29,6 +29,14 @@ export default class DataFormatter {
     return arr;
   }
 
+  static convertSplitter(str: string, splitter: string): string {
+    if (splitter === this.splitter) return str;
+    // replace the first occurence of "splitter" on each line with ": ".
+    const lines = str.split("\n");
+    const result = lines.map(line => line.replace(splitter, this.splitter));
+    return result.join("\n");
+  }
+
   static toMap = (str: string): Map<string, string> => {
     const map = new Map<string, string>();
     const values = str.split("\n");

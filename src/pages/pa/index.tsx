@@ -10,14 +10,14 @@ const PaSystem: NextPage = () => {
         PA systém
       </h1>
       
-      <div className={"flex flex-row justify-center mt-64"}>
+      <div className={"flex flex-row gap-4 justify-center mt-64"}>
         <Link href={paths.paPractice}>
-          <Button variant={"default"} className={"bg-blue-400"}>
+          <Button size={"md"} variant={"default"} className={"bg-blue-400"}>
             Začít trénovat
           </Button>
         </Link>
         <Link href={paths.paEdit}>
-          <Button variant={"subtle"}>
+          <Button size={"md"} variant={"outline"}>
             Upravit data
           </Button>
         </Link>

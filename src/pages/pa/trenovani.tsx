@@ -41,7 +41,7 @@ const PaTraining: NextPage = () => {
             <h1 className="text-4xl text-center font-extrabold tracking-tight text-white sm:text-[5rem]">
                 Trénování
             </h1>
-          <Card className={"relative aspect-square flex rounded-lg flex-col gap-4 mt-28"}>
+          <Card className={"relative aspect-square flex rounded-lg flex-col gap-4 mt-28 "}>
             <h2 className={"text-4xl mt-20 text-center font-bold tracking-tight text-white sm:text-[3rem]"}>
               {!data?.[0] && "Žádná data"}
                 {/*{isInitialLoading && "Načítám data..."}*/}
