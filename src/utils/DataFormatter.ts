@@ -43,7 +43,7 @@ export default class DataFormatter {
       if (line?.trim()) {
         const [key, ...rest] = line.split(DataFormatter.splitter);
         const val = rest.join(DataFormatter.splitter);
-        if (val) parsed.push({key: key!, value: val!});
+        if (val?.trim()) parsed.push({key: key!, value: val!});
       }
     });
 

@@ -64,7 +64,7 @@ const PaTraining: NextPage = () => {
               transition={{duration: 0.3}}
             >
               <Card key={data?.[index] ? data[index]!.key : undefined} className={"relative aspect-square flex rounded-xl flex-col gap-4 mt-28 "}>
-                <h2 className={"text-4xl mt-20 text-center font-bold tracking-tight text-white sm:text-[3rem]"}>
+                <h2 className={`${showValue ? "text-2xl" : "text-4xl"} mt-20 text-center font-bold tracking-tight text-white sm:text-[3rem]`}>
                   {!data?.[0] && (isInitialLoading ? "Načítání..." : "Žádná data")}
                   {data?.[index] && (showValue ? data[index]!.value : data[index]!.key)}
                   {data && index >= data.length && "Konec"}
