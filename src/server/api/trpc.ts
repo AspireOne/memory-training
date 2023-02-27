@@ -30,7 +30,9 @@ type CreateContextOptions = Record<string, never>;
  * @see https://create.t3.gg/en/usage/trpc#-servertrpccontextts
  */
 const createInnerTRPCContext = (_opts: CreateContextOptions) => {
-  return {};
+  return {
+    connectMongoose: mongooseConnector,
+  };
 };
 
 /**
@@ -50,6 +52,7 @@ export const createTRPCContext = (_opts: CreateNextContextOptions) => {
  */
 import { initTRPC } from "@trpc/server";
 import superjson from "superjson";
+import mongooseConnector from "~/utils/mongooseConnector";
 
 const t = initTRPC.context<typeof createTRPCContext>().create({
   transformer: superjson,
